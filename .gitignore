@@ -1,0 +1,9 @@
+# never commit secrets or local junk
+creds
+*.creds
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.log
+__pycache__/

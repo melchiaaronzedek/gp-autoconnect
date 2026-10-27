@@ -1,0 +1,17 @@
+[Unit]
+Description=GlobalProtect VPN auto-reconnect (openconnect)
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStartPre=-/sbin/ip link delete gpd0
+ExecStartPre=-/sbin/ip link delete gpoc0
+ExecStart=/usr/local/bin/gp-autoconnect.sh
+Restart=always
+RestartSec=20
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
